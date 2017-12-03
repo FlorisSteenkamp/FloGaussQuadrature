@@ -1,5 +1,3 @@
-'use strict'
-
 
 // TODO A future improvement can be to use the Gauss–Kronrod rules
 // to estimate the error and thus choose a number of constants based
@@ -18,14 +16,17 @@
  * <p>
  * See http://pomax.github.io/bezierinfo/#arclength
  * </p>
- * 
- * @param {function} f - The univariate function to be integrated
- * @param {number[]} interval - The integration interval
- * @param {number} order - Can be 2, 4, 8, or 16. Higher values give 
+ * @param f - The univariate function to be integrated
+ * @param interval - The integration interval
+ * @param order - Can be 2, 4, 8, or 16. Higher values give 
  * more accurate results but is slower - defaults to 16.
  */
-function gaussQuadrature(f, interval, order) {
-	order = (order === undefined) ? 16 : order;
+function gaussQuadrature(
+        f: (x: number) => number, 
+        interval: number[], 
+        order: 2|4|8|16 = 16): number {
+
+	if (interval[0] === interval[1]) { return 0; }
 	
 	let { weights, abscissas } = GAUSS_CONSTANTS[order];
 	let [a, b] = interval;
@@ -104,4 +105,4 @@ const GAUSS_CONSTANTS = {
 };
 
 
-module.exports = gaussQuadrature;
+export default gaussQuadrature;

@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.FloGaussQuadrature = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.FloGaussQuadrature = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 'use strict';
 
 // TODO A future improvement can be to use the Gauss–Kronrod rules
@@ -25,10 +25,37 @@
  * more accurate results but is slower - defaults to 16.
  */
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _slicedToArray = function () {
+	function sliceIterator(arr, i) {
+		var _arr = [];var _n = true;var _d = false;var _e = undefined;try {
+			for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+				_arr.push(_s.value);if (i && _arr.length === i) break;
+			}
+		} catch (err) {
+			_d = true;_e = err;
+		} finally {
+			try {
+				if (!_n && _i["return"]) _i["return"]();
+			} finally {
+				if (_d) throw _e;
+			}
+		}return _arr;
+	}return function (arr, i) {
+		if (Array.isArray(arr)) {
+			return arr;
+		} else if (Symbol.iterator in Object(arr)) {
+			return sliceIterator(arr, i);
+		} else {
+			throw new TypeError("Invalid attempt to destructure non-iterable instance");
+		}
+	};
+}();
 
 function gaussQuadrature(f, interval, order) {
 	order = order === undefined ? 16 : order;
+	if (interval[0] === interval[1]) {
+		return 0;
+	}
 
 	var _GAUSS_CONSTANTS$orde = GAUSS_CONSTANTS[order],
 	    weights = _GAUSS_CONSTANTS$orde.weights,
