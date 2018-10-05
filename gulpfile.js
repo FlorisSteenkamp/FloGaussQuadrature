@@ -4,7 +4,7 @@ var gulp       = require('gulp');
 var browserify = require('browserify');
 var source     = require('vinyl-source-stream');
 var buffer     = require('vinyl-buffer');
-var uglify     = require('gulp-uglify');
+var uglify     = require('gulp-uglify-es').default;
 var sourcemaps = require('gulp-sourcemaps');
 var env        = require('babel-preset-env');
 var rename     = require('gulp-rename');
@@ -23,14 +23,6 @@ gulp.task('browser', browserTask);
  * Build for browser.
  */
 function nodeTask() {
-
-	function showOnError(err) {	
-		if (!err) { return; }
-		
-		console.error(err.toString());
-		console.error(err.stack); 
-	}
-
 	return tsProject.src()
 		.pipe(tsProject())
 		.pipe(gulp.dest("node"));
@@ -50,8 +42,8 @@ function browserTask() {
 	}
 	
     browserify({
-    		entries: '../index.ts',
-    		standalone: 'FloGaussQuadrature',
+   		entries: '../index.ts',
+   		standalone: 'FloGaussQuadrature',
    	})
 	.plugin(tsify)
 	.bundle(showOnError)
