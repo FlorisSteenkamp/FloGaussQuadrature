@@ -2,17 +2,19 @@
 // TODO A future improvement can be to use the Gauss–Kronrod rules
 // to estimate the error and thus choose a number of constants based
 // on the error.
-// TODO In future, the constants can be calculated and cached so we can
-// chooce any value for the order.
 Object.defineProperty(exports, "__esModule", { value: true });
+// TODO In future, the constants can be calculated and cached so we can
+// choose any value for the order.
 /**
- * Integrates the given function using the Gaussian Quadrature method.
+ * Numerically integrates the given function using the Gaussian Quadrature
+ * method.
+ *
  * See https://en.wikipedia.org/wiki/Gaussian_quadrature
  * See http://pomax.github.io/bezierinfo/#arclength
- * @param f - The univariate function to be integrated
- * @param interval - The integration interval
- * @param order - Can be 2, 4, 8, or 16. Higher values give
- * more accurate results but is slower - defaults to 16.
+ * @param f The univariate function to be integrated
+ * @param interval The integration interval
+ * @param order Can be 2, 4, 8, or 16. Higher values give more accurate results
+ * but is slower - defaults to 16.
  */
 function gaussQuadrature(f, interval, order = 16) {
     if (interval[0] === interval[1]) {
@@ -28,6 +30,7 @@ function gaussQuadrature(f, interval, order = 16) {
     }
     return m1 * result;
 }
+exports.gaussQuadrature = gaussQuadrature;
 // The Gaussian Legendre Quadrature method constants. 
 const GAUSS_CONSTANTS = {
     2: {
@@ -89,4 +92,4 @@ const GAUSS_CONSTANTS = {
         ]
     }
 };
-exports.default = gaussQuadrature;
+//# sourceMappingURL=index.js.map
