@@ -30,7 +30,7 @@
     "devDependencies": {
         "@types/chai": "^4.2.22",
         "@types/mocha": "^9.0.0",
-        "@types/node": "^16.11.7",
+        "@types/node": "^16.11.9",
         "c8": "^7.10.0",
         "chai": "^4.3.4",
         "circular-dependency-plugin": "^5.2.2",
@@ -39,8 +39,8 @@
         "rimraf": "^3.0.2",
         "ts-loader": "^9.2.6",
         "ts-node": "^10.4.0",
-        "typescript": "^4.4.4",
-        "webpack": "^5.64.0",
+        "typescript": "^4.5.2",
+        "webpack": "^5.64.2",
         "webpack-cli": "^4.9.1"
     },
     "scripts": {

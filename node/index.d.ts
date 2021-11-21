@@ -9,5 +9,5 @@
  * @param order Can be 2, 4, 8, or 16. Higher values give more accurate results
  * but is slower - defaults to 16.
  */
-declare function gaussQuadrature(f: (x: number) => number, interval: number[], order?: 2 | 4 | 8 | 16): number;
+declare function gaussQuadrature(f: (x: number) => number, interval: number[], order?: 2 | 4 | 8 | 16 | 64): number;
 export { gaussQuadrature };
