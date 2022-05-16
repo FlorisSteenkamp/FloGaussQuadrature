@@ -1,8 +1,11 @@
 // TODO A future improvement can be to use the Gauss–Kronrod rules
 // to estimate the error and thus choose a number of constants based
-// on the error.
+// on the error. Maybe not.
 // TODO In future, the constants can be calculated and cached so we can
 // choose any value for the order.
+// TODO - to limit rounding error do pairwise addition of terms
+// TODO order abscissas
+// TODO - auto calc abscissas and weights (on first call to function only)
 /**
  * Numerically integrates the given function using the Gaussian Quadrature
  * method.
