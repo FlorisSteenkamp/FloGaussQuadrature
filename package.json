@@ -2,7 +2,7 @@
     "name": "flo-gauss-quadrature",
     "sideEffects": false,
     "description": "Function for doing Gaussian Quadrature numerical integration.",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "author": {
         "name": "Floris Steenkamp"
     },
