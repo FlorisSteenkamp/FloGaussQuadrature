@@ -21,11 +21,11 @@ function gaussQuadrature(f, interval, order = 16) {
     if (interval[0] === interval[1]) {
         return 0;
     }
-    let { weights, abscissas } = GAUSS_CONSTANTS[order];
-    let [a, b] = interval;
+    const { weights, abscissas } = GAUSS_CONSTANTS[order];
+    const [a, b] = interval;
     let result = 0;
-    let m1 = (b - a) / 2;
-    let m2 = (b + a) / 2;
+    const m1 = (b - a) / 2;
+    const m2 = (b + a) / 2;
     for (let i = 0; i <= order - 1; i++) {
         result += weights[i] * f(m1 * abscissas[i] + m2);
     }

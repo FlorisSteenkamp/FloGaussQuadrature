@@ -1,43 +1,28 @@
-var FloGaussQuadrature;
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	// The require scope
-/******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/ // The require scope
+/******/ var __webpack_require__ = {};
+/******/ 
 /************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
+/******/ /* webpack/runtime/define property getters */
+/******/ (() => {
+/******/ 	// define getter functions for harmony exports
+/******/ 	__webpack_require__.d = (exports, definition) => {
+/******/ 		for(var key in definition) {
+/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
+/******/ 		}
+/******/ 	};
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/hasOwnProperty shorthand */
+/******/ (() => {
+/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ })();
+/******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
-__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "gaussQuadrature": () => (/* binding */ gaussQuadrature)
+/* harmony export */   "q": () => (/* binding */ gaussQuadrature)
 /* harmony export */ });
 // TODO A future improvement can be to use the Gauss–Kronrod rules
 // to estimate the error and thus choose a number of constants based
@@ -62,11 +47,11 @@ function gaussQuadrature(f, interval, order = 16) {
     if (interval[0] === interval[1]) {
         return 0;
     }
-    let { weights, abscissas } = GAUSS_CONSTANTS[order];
-    let [a, b] = interval;
+    const { weights, abscissas } = GAUSS_CONSTANTS[order];
+    const [a, b] = interval;
     let result = 0;
-    let m1 = (b - a) / 2;
-    let m2 = (b + a) / 2;
+    const m1 = (b - a) / 2;
+    const m2 = (b + a) / 2;
     for (let i = 0; i <= order - 1; i++) {
         result += weights[i] * f(m1 * abscissas[i] + m2);
     }
@@ -278,6 +263,5 @@ const GAUSS_CONSTANTS = {
 };
 
 
-FloGaussQuadrature = __webpack_exports__;
-/******/ })()
-;
+var __webpack_exports__gaussQuadrature = __webpack_exports__.q;
+export { __webpack_exports__gaussQuadrature as gaussQuadrature };
