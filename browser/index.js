@@ -22,7 +22,7 @@
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "q": () => (/* binding */ gaussQuadrature)
+/* harmony export */   G: () => (/* binding */ gaussQuadrature)
 /* harmony export */ });
 // TODO A future improvement can be to use the Gauss–Kronrod rules
 // to estimate the error and thus choose a number of constants based
@@ -263,5 +263,5 @@ const GAUSS_CONSTANTS = {
 };
 
 
-var __webpack_exports__gaussQuadrature = __webpack_exports__.q;
+var __webpack_exports__gaussQuadrature = __webpack_exports__.G;
 export { __webpack_exports__gaussQuadrature as gaussQuadrature };
