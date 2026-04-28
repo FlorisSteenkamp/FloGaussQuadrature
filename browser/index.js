@@ -263,5 +263,5 @@ const GAUSS_CONSTANTS = {
 };
 
 
-var __webpack_exports__gaussQuadrature = __webpack_exports__.G;
+const __webpack_exports__gaussQuadrature = __webpack_exports__.G;
 export { __webpack_exports__gaussQuadrature as gaussQuadrature };
